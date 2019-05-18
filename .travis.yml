@@ -11,8 +11,10 @@ env:
     - RACKET_VERSION=RELEASE
     - RACKET_VERSION=HEAD
     - RACKET_VERSION=HEADCS
+
+matrix:
   allow_failures:
-    - RACKET_VERSION=7.3 # four errors in tests due to changes in Racket
+    - env: RACKET_VERSION=7.3 # four errors in tests due to changes in Racket
 
 before_install:
   - git clone https://github.com/greghendershott/travis-racket.git

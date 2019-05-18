@@ -6,18 +6,14 @@ env:
   global:
     - RACKET_DIR: '~/racket'
   matrix:
-    - RACKET_VERSION: 5.92
-    - RACKET_VERSION: 5.93
-    - RACKET_VERSION: 6.0
-    - RACKET_VERSION: 6.0.1
-    - RACKET_VERSION: 6.1
-    - RACKET_VERSION: 6.1.1
-    - RACKET_VERSION: 6.2
-    - RACKET_VERSION: 6.2.1
-    - RACKET_VERSION: 6.4
-    - RACKET_VERSION: 6.5
-    - RACKET_VERSION: 6.6
-    - RACKET_VERSION: HEAD
+    include:
+      - RACKET_VERSION: 6.12
+      - RACKET_VERSION: 7.3
+      - RACKET_VERSION: RELEASE
+      - RACKET_VERSION: HEAD
+      - RACKET_VERSION: HEADCS
+    allow_failures:
+      - RACKET_VERSION: 7.3 # four errors in tests due to changes in Racket
 
 before_install:
   - git clone https://github.com/greghendershott/travis-racket.git
